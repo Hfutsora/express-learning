@@ -1,21 +1,46 @@
 import "reflect-metadata";
-import {createConnection} from "typeorm";
-import {User} from "./entity/User";
+import { createConnection } from "typeorm";
+import * as express from "express";
+import * as bodyParser from "body-parser";
+import * as helmet from "helmet";
+import * as cors from "cors";
+import routes from "./routes";
+import * as passport from "passport";
 
-createConnection().then(async connection => {
+class Server {
+  public app: express.Application;
 
-    console.log("Inserting a new user into the database...");
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    await connection.manager.save(user);
-    console.log("Saved a new user with id: " + user.id);
+  constructor() {
+    this.app = express();
+    this.config();
+    this.routes();
+  }
 
-    console.log("Loading users from the database...");
-    const users = await connection.manager.find(User);
-    console.log("Loaded users: ", users);
+  public routes(): void {
+    this.app.use("/", routes);
+  }
 
-    console.log("Here you can setup and run express/koa/any other framework.");
+  public config(): void {
+    this.app.set("port", process.env.PORT || 3000);
+    this.app.use(passport.initialize());
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(cors());
+    this.app.use(helmet());
+  }
 
-}).catch(error => console.log(error));
+  public start(): void {
+    this.app.listen(this.app.get("port"), () => {
+      // eslint-disable-next-line no-console
+      console.log("Server running at http://localhost:%d", this.app.get("port"));
+    });
+  }
+}
+
+const server = new Server();
+
+// Connects to the Database -> then starts the express
+// eslint-disable-next-line @typescript-eslint/require-await
+createConnection().then(async () => {
+  server.start();
+});
