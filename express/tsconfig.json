@@ -10,14 +10,6 @@
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": true,
-   },
-   "include": [
-      "tests/**/*.ts",
-      "demo/**/*.ts",
-      ".eslintrc.js"
-   ],
-   "exclude": [
-      "node_modules"
-   ]
+      "sourceMap": true
+   }
 }
