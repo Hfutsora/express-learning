@@ -1,9 +1,9 @@
-import request from '@/utils/request';
+import { request } from "@tarojs/taro";
 
 export function login(parameters: ApiParameters) {
   return request({
-    method: 'post',
+    method: 'POST',
     url: '/user/login',
-    data: parameters.data
+    data: parameters.body,
   })
 }

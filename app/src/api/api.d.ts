@@ -3,7 +3,7 @@ type ApiParameters = {
     [key: string]: any;
   };
 
-  data?: {
+  body?: {
     [key: string]: any;
   };
 };

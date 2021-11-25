@@ -6,6 +6,7 @@ import * as helmet from "helmet";
 import * as cors from "cors";
 import routes from "./routes";
 import * as passport from "passport";
+import { User } from "./entity/User";
 
 class Server {
   public app: express.Application;
@@ -31,7 +32,6 @@ class Server {
 
   public start(): void {
     this.app.listen(this.app.get("port"), () => {
-      // eslint-disable-next-line no-console
       console.log("Server running at http://localhost:%d", this.app.get("port"));
     });
   }
@@ -40,7 +40,22 @@ class Server {
 const server = new Server();
 
 // Connects to the Database -> then starts the express
-// eslint-disable-next-line @typescript-eslint/require-await
-createConnection().then(async () => {
+createConnection().then(async (connection) => {
+  let userRepo = connection.getRepository(User);
+
+  const admin = await userRepo.findOne({ name: 'admin' });
+
+  if(!admin) {
+    const user = new User();
+    user.name = 'admin';
+    user.email = '346762712@qq.com';
+    user.password = '123456';
+    user.age = 18;
+    user.role = 'ADMIN';
+
+    userRepo.save(user);
+  }
+
+
   server.start();
 });
