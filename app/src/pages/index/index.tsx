@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text, Input } from '@tarojs/components'
 
 import { add, minus, asyncAdd } from '../../actions/counter'
 
@@ -51,6 +51,7 @@ interface Index {
     dispatch(asyncAdd())
   }
 }))
+
 class Index extends Component {
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
