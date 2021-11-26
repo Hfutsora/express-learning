@@ -1,9 +1,9 @@
-import { request } from "@tarojs/taro";
+import request from "@/utils/request"
 
 export function login(parameters: ApiParameters) {
   return request({
     method: 'POST',
-    url: 'http://127.0.0.1:3000/user/login',
+    url: '/user/login',
     data: parameters.body,
   })
 }
