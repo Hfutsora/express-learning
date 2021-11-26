@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { Length, IsNotEmpty, IsEmail } from "class-validator";
 import * as bcrypt from "bcryptjs";
+import { Order } from "./Order";
 
 @Entity()
 @Unique(["email"])
@@ -26,6 +27,9 @@ export class User {
   @Column()
   @IsNotEmpty()
   role: string;
+
+  @Column()
+  order: Order[];
 
   @Column()
   @CreateDateColumn()

@@ -1,5 +1,6 @@
+import { IsPhoneNumber } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Commodity } from './Commodity';
+import { Commodity } from './Index';
 
 @Entity()
 export class Supplier {
@@ -10,6 +11,7 @@ export class Supplier {
   name: string;
 
   @Column()
+  @IsPhoneNumber('CN')
   phone: string;
 
   @OneToMany(type => Commodity, commodity => commodity.supplier)
