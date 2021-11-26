@@ -6,7 +6,7 @@ import * as helmet from "helmet";
 import * as cors from "cors";
 import routes from "./routes";
 import * as passport from "passport";
-import { User } from "./entity/user/Index";
+import { User } from "./entity/user/User";
 import { encrypt } from "./utils/crypto";
 
 class Server {

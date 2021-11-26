@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import { validate } from "class-validator";
-import { User } from "../entity/user/Index";
+import { User } from "../entity/user/User";
 
 import * as jwt from "jsonwebtoken";
 import jwtDecode from "jwt-decode";

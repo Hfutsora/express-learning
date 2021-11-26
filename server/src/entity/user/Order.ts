@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { Coupon } from '../commodity/Coupon';
-import { TemporaryCommodity } from '../commodity/Index';
+import { TemporaryCommodity } from '../commodity/Commodity';
 
 @Entity()
 export class Order {

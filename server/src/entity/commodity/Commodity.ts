@@ -1,7 +1,7 @@
 import { IsNotEmpty, Length } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, OneToOne, JoinColumn, ManyToOne, CreateDateColumn } from "typeorm";
 import { Supplier } from "./Supplier";
-import { User } from "../user/Index";
+import { User } from "../user/User";
 import { Classification } from "./config";
 
 @Entity()

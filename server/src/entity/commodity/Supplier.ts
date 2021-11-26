@@ -1,6 +1,6 @@
 import { IsPhoneNumber } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Commodity } from './Index';
+import { Commodity } from './Commodity';
 
 @Entity()
 export class Supplier {
