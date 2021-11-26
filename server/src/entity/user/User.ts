@@ -1,10 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from "typeorm";
 import { Length, IsNotEmpty, IsEmail } from "class-validator";
 import * as bcrypt from "bcryptjs";
 import { Order } from "./Order";
+import { ShoppingCart } from "./ShoppingCart";
 
 @Entity()
-@Unique(["email"])
 export class User {
   @PrimaryGeneratedColumn()
   id: string;
@@ -29,6 +29,11 @@ export class User {
   role: string;
 
   @Column()
+  @OneToOne(type => ShoppingCart)
+  shoppingCart: ShoppingCart;
+
+  @OneToOne(type => Order)
+  @JoinColumn()
   order: Order[];
 
   @Column()
