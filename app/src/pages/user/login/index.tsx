@@ -1,4 +1,5 @@
 import { login } from '@/api/user';
+import { encrypt } from '@/utils/crypto';
 import { useState } from 'react';
 
 import { AtForm, AtInput, AtButton } from 'taro-ui';
@@ -13,7 +14,7 @@ function Index() {
     await login({
       body: {
         name: username,
-        password,
+        password: encrypt(password),
       }
     })
   }

@@ -7,6 +7,7 @@ import * as cors from "cors";
 import routes from "./routes";
 import * as passport from "passport";
 import { User } from "./entity/User";
+import { encrypt } from "./utils/crypto";
 
 class Server {
   public app: express.Application;
@@ -49,11 +50,14 @@ createConnection().then(async (connection) => {
     const user = new User();
     user.name = 'admin';
     user.email = '346762712@qq.com';
-    user.password = '123456';
+    user.password = encrypt('123456');
     user.age = 18;
     user.role = 'ADMIN';
+    user.hashPassword();
 
     userRepo.save(user);
+
+    console.log("create admin user.");
   }
 
 

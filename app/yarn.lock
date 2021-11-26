@@ -1495,6 +1495,11 @@
   resolved "https://registry.npmjs.org/@types/archy/-/archy-0.0.31.tgz#01650a4641e7e1d11dbd64eda42eec9a2f829c7f"
   integrity sha512-v+dxizsFVyXgD3EpFuqT9YjdEjbJmPxNf1QIX9ohZOhxh1ZF2yhqv3vYaeum9lg3VghhxS5S0a6yldN9J9lPEQ==
 
+"@types/crypto-js@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/@types/crypto-js/-/crypto-js-4.0.2.tgz#4524325a175bf819fec6e42560c389ce1fb92c97"
+  integrity sha512-sCVniU+h3GcGqxOmng11BRvf9TfN9yIs8KKjB8C8d75W69cpTfZG80gau9yTx5SxF3gvHGbJhdESzzvnjtf3Og==
+
 "@types/debug@^4.1.5":
   version "4.1.7"
   resolved "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
@@ -3485,6 +3490,11 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+crypto-js@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
+  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
 
 css-color-keywords@^1.0.0:
   version "1.0.0"
