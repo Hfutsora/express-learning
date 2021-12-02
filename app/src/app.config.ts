@@ -1,6 +1,7 @@
 export default {
   pages: [
-    'pages/user/login/index'
+    'pages/user/login/index',
+    'pages/home/index'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -8,4 +9,4 @@ export default {
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   }
-}
+};

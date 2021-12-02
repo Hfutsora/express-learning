@@ -17,5 +17,6 @@ export function decrypt(text: string) {
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7
   });
+
   return decrypted.toString(CryptoJS.enc.Utf8);
 }

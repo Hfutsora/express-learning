@@ -28,8 +28,8 @@ export class User {
   @IsNotEmpty()
   role: string;
 
-  @Column()
   @OneToOne(type => ShoppingCart)
+  @JoinColumn()
   shoppingCart: ShoppingCart;
 
   @OneToOne(type => Order)

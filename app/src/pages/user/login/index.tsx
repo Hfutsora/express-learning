@@ -1,22 +1,28 @@
 import { login } from '@/api/user';
 import { encrypt } from '@/utils/crypto';
+import { setAuthorizationToken } from '@/utils/request';
+import Taro from '@tarojs/taro';
 import { useState } from 'react';
 
 import { AtForm, AtInput, AtButton } from 'taro-ui';
 
 import './index.scss';
 
-function Index() {
+function Login() {
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('');
 
   async function submitLogin() {
-    await login({
+    const { data } = await login({
       body: {
         name: username,
-        password: encrypt(password),
+        password: encrypt(password)
       }
-    })
+    });
+
+    setAuthorizationToken(data.token);
+
+    Taro.redirectTo({ url: '/pages/home/index' });
   }
 
   return (
@@ -26,7 +32,7 @@ function Index() {
 
       <AtButton className='submit-button' onClick={submitLogin}>登录</AtButton>
     </AtForm>
-  )
+  );
 }
 
-export default Index;
+export default Login;

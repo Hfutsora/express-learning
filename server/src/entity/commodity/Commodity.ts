@@ -31,8 +31,8 @@ export class Commodity {
 
 @Entity()
 export class TemporaryCommodity extends Commodity {
-  @Column()
-  owner: User;
+  // @OneToOne(type => User)
+  // owner: User;
 
   @Column()
   @CreateDateColumn()

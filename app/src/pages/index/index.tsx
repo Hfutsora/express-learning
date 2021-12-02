@@ -1,10 +1,10 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
-import { View, Button, Text, Input } from '@tarojs/components'
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Button, Text, Input } from '@tarojs/components';
 
-import { add, minus, asyncAdd } from '../../actions/counter'
+import { add, minus, asyncAdd } from '../../actions/counter';
 
-import './index.scss'
+import './index.scss';
 
 // #region 书写注意
 //
@@ -41,29 +41,29 @@ interface Index {
 @connect(({ counter }) => ({
   counter
 }), (dispatch) => ({
-  add () {
-    dispatch(add())
+  add() {
+    dispatch(add());
   },
-  dec () {
-    dispatch(minus())
+  dec() {
+    dispatch(minus());
   },
-  asyncAdd () {
-    dispatch(asyncAdd())
+  asyncAdd() {
+    dispatch(asyncAdd());
   }
 }))
 
 class Index extends Component {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  componentWillReceiveProps(nextProps) {
+    console.log(this.props, nextProps);
   }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
+  componentDidHide() { }
 
-  render () {
+  render() {
     return (
       <View className='index'>
         <Button className='add_btn' onClick={this.props.add}>+</Button>
@@ -72,9 +72,9 @@ class Index extends Component {
         <View><Text>{this.props.counter.num}</Text></View>
         <View><Text>Hello, World</Text></View>
       </View>
-    )
+    );
   }
 }
 
-export default Index
+export default Index;
 

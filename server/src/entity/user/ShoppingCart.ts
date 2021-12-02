@@ -8,6 +8,6 @@ export class ShoppingCart {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  items: { commodity: TemporaryCommodity; count: number; }[]
+  // @Column()
+  // items: { commodity: TemporaryCommodity; count: number; }[]
 }

@@ -7,11 +7,11 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  items: { commodity: TemporaryCommodity; count: number; }[];
+  // @Column()
+  // items: { commodity: TemporaryCommodity; count: number; }[];
 
-  @Column()
-  coupons: Coupon[];
+  // @Column()
+  // coupons: Coupon[];
 
   @Column()
   @CreateDateColumn()
